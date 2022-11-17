@@ -1,4 +1,7 @@
- 
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Iterator;
 public class LinkList<T> implements Iterable<T>{
     //记录头结点的位置
@@ -104,7 +107,7 @@ public class LinkList<T> implements Iterable<T>{
     //查找元素t在链表中第一次出现的位置,若无元素t则返回-1
     public int indexOf(T t){
         Node n=head;
-        for(int i=0;n.next!=null;i++){
+        for(int i=1;n.next!=null;i++){
             n=n.next;
             if(n.item.equals(t)){
                 return i;
@@ -112,6 +115,19 @@ public class LinkList<T> implements Iterable<T>{
         }
         return -1;
     }
+ //返回元素最后一次出现的位置，如果没有该元素返回-1
+ public int last_index_Of(T t){
+	         Node n=head;
+	         List<Integer> index_list=new ArrayList<>();
+	         for(int i=1;n.next!=null;i++){
+	                 n=n.next;
+	            if(n.item.equals(t)){
+	                 index_list.add(i);
+	             }
+	         } 
+	       Integer max = Collections.max(index_list);
+		   return max;
+	     }
     @Override
     public Iterator<T> iterator() {
         // TODO Auto-generated method stub
