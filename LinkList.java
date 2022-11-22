@@ -128,6 +128,26 @@ public class LinkList<T> implements Iterable<T>{
 	       Integer max = Collections.max(index_list);
 		   return max;
 	     }
+	
+               //检查两个单项链表是否相等
+		/*Compare two linked lists A and B.Return 1 if they are identical and 0 if they are not. */
+	        public String equals(LinkList A, LinkList B) {
+			Node headA=A.head;
+			Node headB=B.head;
+			Node p = headA;
+			Node q = headB;
+			/*依次比较两个移动节点*/
+			while(p!=null && q!=null && p.item==q.item ){
+				p = p.next;
+				q = q.next;
+			}
+			/*跳出循环后，看此时的p、q是否相等*/
+			 if(p==q){
+				 return "The two LinkedList are equal.";
+			 }else{
+				 return "The two LinkedList are not equal.";
+			 }
+		}
     @Override
     public Iterator<T> iterator() {
         // TODO Auto-generated method stub
